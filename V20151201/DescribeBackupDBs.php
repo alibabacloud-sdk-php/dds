@@ -5,16 +5,20 @@ namespace AlibabaCloud\Dds\V20151201;
 use AlibabaCloud\Rpc;
 
 /**
- * Api DeleteReplicationGroup
+ * Api DescribeBackupDBs
  *
  * @method string getResourceOwnerId()
+ * @method string getRestoreTime()
  * @method string getSecurityToken()
  * @method string getResourceOwnerAccount()
- * @method string getReplicationGroupId()
  * @method string getOwnerAccount()
+ * @method string getBackupId()
+ * @method string getPageSize()
+ * @method string getSourceDBInstance()
  * @method string getOwnerId()
+ * @method string getPageNumber()
  */
-class DeleteReplicationGroup extends Rpc
+class DescribeBackupDBs extends Rpc
 {
     public $product = 'Dds';
 
@@ -33,6 +37,19 @@ class DeleteReplicationGroup extends Rpc
     {
         $this->data['ResourceOwnerId'] = $resourceOwnerId;
         $this->options['query']['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $restoreTime
+     *
+     * @return $this
+     */
+    public function withRestoreTime($restoreTime)
+    {
+        $this->data['RestoreTime'] = $restoreTime;
+        $this->options['query']['RestoreTime'] = $restoreTime;
 
         return $this;
     }
@@ -64,19 +81,6 @@ class DeleteReplicationGroup extends Rpc
     }
 
     /**
-     * @param string $replicationGroupId
-     *
-     * @return $this
-     */
-    public function withReplicationGroupId($replicationGroupId)
-    {
-        $this->data['ReplicationGroupId'] = $replicationGroupId;
-        $this->options['query']['ReplicationGroupId'] = $replicationGroupId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -90,6 +94,45 @@ class DeleteReplicationGroup extends Rpc
     }
 
     /**
+     * @param string $backupId
+     *
+     * @return $this
+     */
+    public function withBackupId($backupId)
+    {
+        $this->data['BackupId'] = $backupId;
+        $this->options['query']['BackupId'] = $backupId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageSize
+     *
+     * @return $this
+     */
+    public function withPageSize($pageSize)
+    {
+        $this->data['PageSize'] = $pageSize;
+        $this->options['query']['PageSize'] = $pageSize;
+
+        return $this;
+    }
+
+    /**
+     * @param string $sourceDBInstance
+     *
+     * @return $this
+     */
+    public function withSourceDBInstance($sourceDBInstance)
+    {
+        $this->data['SourceDBInstance'] = $sourceDBInstance;
+        $this->options['query']['SourceDBInstance'] = $sourceDBInstance;
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -98,6 +141,19 @@ class DeleteReplicationGroup extends Rpc
     {
         $this->data['OwnerId'] = $ownerId;
         $this->options['query']['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $pageNumber
+     *
+     * @return $this
+     */
+    public function withPageNumber($pageNumber)
+    {
+        $this->data['PageNumber'] = $pageNumber;
+        $this->options['query']['PageNumber'] = $pageNumber;
 
         return $this;
     }

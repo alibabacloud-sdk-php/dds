@@ -5,17 +5,18 @@ namespace AlibabaCloud\Dds\V20151201;
 use AlibabaCloud\Rpc;
 
 /**
- * Api RestoreDBInstance
+ * Api UntagResources
  *
+ * @method string getAll()
  * @method string getResourceOwnerId()
- * @method string getSecurityToken()
+ * @method array getResourceId()
  * @method string getResourceOwnerAccount()
  * @method string getOwnerAccount()
- * @method string getBackupId()
- * @method string getDBInstanceId()
  * @method string getOwnerId()
+ * @method array getTagKey()
+ * @method string getResourceType()
  */
-class RestoreDBInstance extends Rpc
+class UntagResources extends Rpc
 {
     public $product = 'Dds';
 
@@ -24,6 +25,19 @@ class RestoreDBInstance extends Rpc
     public $method = 'POST';
 
     public $serviceCode = 'dds';
+
+    /**
+     * @param string $all
+     *
+     * @return $this
+     */
+    public function withAll($all)
+    {
+        $this->data['All'] = $all;
+        $this->options['query']['All'] = $all;
+
+        return $this;
+    }
 
     /**
      * @param string $resourceOwnerId
@@ -39,14 +53,16 @@ class RestoreDBInstance extends Rpc
     }
 
     /**
-     * @param string $securityToken
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withSecurityToken($securityToken)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['SecurityToken'] = $securityToken;
-        $this->options['query']['SecurityToken'] = $securityToken;
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
+            $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }
@@ -78,32 +94,6 @@ class RestoreDBInstance extends Rpc
     }
 
     /**
-     * @param string $backupId
-     *
-     * @return $this
-     */
-    public function withBackupId($backupId)
-    {
-        $this->data['BackupId'] = $backupId;
-        $this->options['query']['BackupId'] = $backupId;
-
-        return $this;
-    }
-
-    /**
-     * @param string $dBInstanceId
-     *
-     * @return $this
-     */
-    public function withDBInstanceId($dBInstanceId)
-    {
-        $this->data['DBInstanceId'] = $dBInstanceId;
-        $this->options['query']['DBInstanceId'] = $dBInstanceId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerId
      *
      * @return $this
@@ -112,6 +102,34 @@ class RestoreDBInstance extends Rpc
     {
         $this->data['OwnerId'] = $ownerId;
         $this->options['query']['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param array $tagKey
+     *
+     * @return $this
+     */
+    public function withTagKey(array $tagKey)
+    {
+        $this->data['TagKey'] = $tagKey;
+        foreach ($tagKey as $i => $iValue) {
+            $this->options['query']['TagKey.' . ($i + 1)] = $iValue;
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceType
+     *
+     * @return $this
+     */
+    public function withResourceType($resourceType)
+    {
+        $this->data['ResourceType'] = $resourceType;
+        $this->options['query']['ResourceType'] = $resourceType;
 
         return $this;
     }

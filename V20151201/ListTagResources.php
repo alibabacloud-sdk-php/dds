@@ -5,16 +5,18 @@ namespace AlibabaCloud\Dds\V20151201;
 use AlibabaCloud\Rpc;
 
 /**
- * Api DeleteReplicationGroup
+ * Api ListTagResources
  *
  * @method string getResourceOwnerId()
- * @method string getSecurityToken()
+ * @method array getResourceId()
  * @method string getResourceOwnerAccount()
- * @method string getReplicationGroupId()
+ * @method string getNextToken()
  * @method string getOwnerAccount()
+ * @method array getTag()
  * @method string getOwnerId()
+ * @method string getResourceType()
  */
-class DeleteReplicationGroup extends Rpc
+class ListTagResources extends Rpc
 {
     public $product = 'Dds';
 
@@ -38,14 +40,16 @@ class DeleteReplicationGroup extends Rpc
     }
 
     /**
-     * @param string $securityToken
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withSecurityToken($securityToken)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['SecurityToken'] = $securityToken;
-        $this->options['query']['SecurityToken'] = $securityToken;
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
+            $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }
@@ -64,14 +68,14 @@ class DeleteReplicationGroup extends Rpc
     }
 
     /**
-     * @param string $replicationGroupId
+     * @param string $nextToken
      *
      * @return $this
      */
-    public function withReplicationGroupId($replicationGroupId)
+    public function withNextToken($nextToken)
     {
-        $this->data['ReplicationGroupId'] = $replicationGroupId;
-        $this->options['query']['ReplicationGroupId'] = $replicationGroupId;
+        $this->data['NextToken'] = $nextToken;
+        $this->options['query']['NextToken'] = $nextToken;
 
         return $this;
     }
@@ -90,6 +94,22 @@ class DeleteReplicationGroup extends Rpc
     }
 
     /**
+     * @param array $tag
+     *
+     * @return $this
+     */
+    public function withTag(array $tag)
+    {
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $i => $iValue) {
+            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $tag[$i]['Value'];
+            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $tag[$i]['Key'];
+        }
+
+        return $this;
+    }
+
+    /**
      * @param string $ownerId
      *
      * @return $this
@@ -98,6 +118,19 @@ class DeleteReplicationGroup extends Rpc
     {
         $this->data['OwnerId'] = $ownerId;
         $this->options['query']['OwnerId'] = $ownerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $resourceType
+     *
+     * @return $this
+     */
+    public function withResourceType($resourceType)
+    {
+        $this->data['ResourceType'] = $resourceType;
+        $this->options['query']['ResourceType'] = $resourceType;
 
         return $this;
     }

@@ -5,16 +5,19 @@ namespace AlibabaCloud\Dds\V20151201;
 use AlibabaCloud\Rpc;
 
 /**
- * Api DeleteReplicationGroup
+ * Api CheckRecoveryCondition
  *
  * @method string getResourceOwnerId()
+ * @method string getRestoreTime()
+ * @method string getDatabaseNames()
  * @method string getSecurityToken()
  * @method string getResourceOwnerAccount()
- * @method string getReplicationGroupId()
  * @method string getOwnerAccount()
+ * @method string getBackupId()
+ * @method string getSourceDBInstance()
  * @method string getOwnerId()
  */
-class DeleteReplicationGroup extends Rpc
+class CheckRecoveryCondition extends Rpc
 {
     public $product = 'Dds';
 
@@ -33,6 +36,32 @@ class DeleteReplicationGroup extends Rpc
     {
         $this->data['ResourceOwnerId'] = $resourceOwnerId;
         $this->options['query']['ResourceOwnerId'] = $resourceOwnerId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $restoreTime
+     *
+     * @return $this
+     */
+    public function withRestoreTime($restoreTime)
+    {
+        $this->data['RestoreTime'] = $restoreTime;
+        $this->options['query']['RestoreTime'] = $restoreTime;
+
+        return $this;
+    }
+
+    /**
+     * @param string $databaseNames
+     *
+     * @return $this
+     */
+    public function withDatabaseNames($databaseNames)
+    {
+        $this->data['DatabaseNames'] = $databaseNames;
+        $this->options['query']['DatabaseNames'] = $databaseNames;
 
         return $this;
     }
@@ -64,19 +93,6 @@ class DeleteReplicationGroup extends Rpc
     }
 
     /**
-     * @param string $replicationGroupId
-     *
-     * @return $this
-     */
-    public function withReplicationGroupId($replicationGroupId)
-    {
-        $this->data['ReplicationGroupId'] = $replicationGroupId;
-        $this->options['query']['ReplicationGroupId'] = $replicationGroupId;
-
-        return $this;
-    }
-
-    /**
      * @param string $ownerAccount
      *
      * @return $this
@@ -85,6 +101,32 @@ class DeleteReplicationGroup extends Rpc
     {
         $this->data['OwnerAccount'] = $ownerAccount;
         $this->options['query']['OwnerAccount'] = $ownerAccount;
+
+        return $this;
+    }
+
+    /**
+     * @param string $backupId
+     *
+     * @return $this
+     */
+    public function withBackupId($backupId)
+    {
+        $this->data['BackupId'] = $backupId;
+        $this->options['query']['BackupId'] = $backupId;
+
+        return $this;
+    }
+
+    /**
+     * @param string $sourceDBInstance
+     *
+     * @return $this
+     */
+    public function withSourceDBInstance($sourceDBInstance)
+    {
+        $this->data['SourceDBInstance'] = $sourceDBInstance;
+        $this->options['query']['SourceDBInstance'] = $sourceDBInstance;
 
         return $this;
     }
