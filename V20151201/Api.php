@@ -2,7 +2,143 @@
 
 namespace AlibabaCloud\Dds\V20151201;
 
+use AlibabaCloud\ApiResolverTrait;
 use AlibabaCloud\Rpc;
+
+/**
+ * Resolve Api based on the method name.
+ *
+ * @method CheckRecoveryCondition checkRecoveryCondition(array $options = [])
+ * @method DescribeBackupDBs describeBackupDBs(array $options = [])
+ * @method ListTagResources listTagResources(array $options = [])
+ * @method UntagResources untagResources(array $options = [])
+ * @method TagResources tagResources(array $options = [])
+ * @method ModifyInstanceVpcAuthMode modifyInstanceVpcAuthMode(array $options = [])
+ * @method ModifyActiveOperationPendingTask modifyActiveOperationPendingTask(array $options = [])
+ * @method DescribeTargetAVZ describeTargetAVZ(array $options = [])
+ * @method DescribeAvailableEngineVersion describeAvailableEngineVersion(array $options = [])
+ * @method DescribeRenewalPrice describeRenewalPrice(array $options = [])
+ * @method MigrateToOtherZone migrateToOtherZone(array $options = [])
+ * @method DescribeInstanceAutoRenewalAttribute describeInstanceAutoRenewalAttribute(array $options = [])
+ * @method ModifyInstanceAutoRenewalAttribute modifyInstanceAutoRenewalAttribute(array $options = [])
+ * @method EvaluateResource evaluateResource(array $options = [])
+ * @method ModifyActiveOperationTask modifyActiveOperationTask(array $options = [])
+ * @method DescribeActiveOperationTaskRegion describeActiveOperationTaskRegion(array $options = [])
+ * @method DescribeActiveOperationTaskType describeActiveOperationTaskType(array $options = [])
+ * @method DescribeActiveOperationTaskCount describeActiveOperationTaskCount(array $options = [])
+ * @method DescribeActiveOperationTask describeActiveOperationTask(array $options = [])
+ * @method DescribeRunningLogRecords describeRunningLogRecords(array $options = [])
+ * @method DescribeErrorLogRecords describeErrorLogRecords(array $options = [])
+ * @method ModifyDBInstanceSSL modifyDBInstanceSSL(array $options = [])
+ * @method DescribeDBInstanceSSL describeDBInstanceSSL(array $options = [])
+ * @method DescribeSlowLogRecords describeSlowLogRecords(array $options = [])
+ * @method DescribeAuditLogFilter describeAuditLogFilter(array $options = [])
+ * @method ModifyAuditLogFilter modifyAuditLogFilter(array $options = [])
+ * @method ModifyDBInstanceConnectionString modifyDBInstanceConnectionString(array $options = [])
+ * @method EvaluateFailOverSwitch evaluateFailOverSwitch(array $options = [])
+ * @method DescribeKernelReleaseNotes describeKernelReleaseNotes(array $options = [])
+ * @method UpgradeDBInstanceKernelVersion upgradeDBInstanceKernelVersion(array $options = [])
+ * @method ModifyDescribetion modifyDescribetion(array $options = [])
+ * @method ModifyAccountInfo modifyAccountInfo(array $options = [])
+ * @method DescribeConnectionInfo describeConnectionInfo(array $options = [])
+ * @method DescribePerformanceInfo describePerformanceInfo(array $options = [])
+ * @method ModifyConnectionInfo modifyConnectionInfo(array $options = [])
+ * @method AddMonitorNode addMonitorNode(array $options = [])
+ * @method DeleteMonitorNode deleteMonitorNode(array $options = [])
+ * @method RebuildInstance rebuildInstance(array $options = [])
+ * @method DestroyInstance destroyInstance(array $options = [])
+ * @method DescribeAuditPolicy describeAuditPolicy(array $options = [])
+ * @method ModifyAuditPolicy modifyAuditPolicy(array $options = [])
+ * @method TransformToPrePaid transformToPrePaid(array $options = [])
+ * @method DescribeAvailableTimeRange describeAvailableTimeRange(array $options = [])
+ * @method DescribeRdsVSwitchs describeRdsVSwitchs(array $options = [])
+ * @method DescribeIndexRecommendation describeIndexRecommendation(array $options = [])
+ * @method DescribeAvaliableTimeRange describeAvaliableTimeRange(array $options = [])
+ * @method CreateRecommendationTask createRecommendationTask(array $options = [])
+ * @method DescribeRdsVpcs describeRdsVpcs(array $options = [])
+ * @method DescribeMonitorInstances describeMonitorInstances(array $options = [])
+ * @method DescribeMonitorAttribute describeMonitorAttribute(array $options = [])
+ * @method DeleteMonitorInstance deleteMonitorInstance(array $options = [])
+ * @method CreateMonitorInstance createMonitorInstance(array $options = [])
+ * @method CheckConnectivity checkConnectivity(array $options = [])
+ * @method DescribeVerificationList describeVerificationList(array $options = [])
+ * @method ModifyReplicaRecoveryMode modifyReplicaRecoveryMode(array $options = [])
+ * @method ModifyReplicaVerificationMode modifyReplicaVerificationMode(array $options = [])
+ * @method DescribeStrategy describeStrategy(array $options = [])
+ * @method DescribeReplicaConflictInfo describeReplicaConflictInfo(array $options = [])
+ * @method ModifyReplicaDynamicMode modifyReplicaDynamicMode(array $options = [])
+ * @method ModifyReplicaFilterMode modifyReplicaFilterMode(array $options = [])
+ * @method DescribeStaticVerificationList describeStaticVerificationList(array $options = [])
+ * @method CreateStaticVerification createStaticVerification(array $options = [])
+ * @method ModifyDynamicMode modifyDynamicMode(array $options = [])
+ * @method ModifyReplicaRecoverMode modifyReplicaRecoverMode(array $options = [])
+ * @method DescribeDynamicVerificationList describeDynamicVerificationList(array $options = [])
+ * @method ModifyDBInstanceMonitor modifyDBInstanceMonitor(array $options = [])
+ * @method DescribeDBInstanceMonitor describeDBInstanceMonitor(array $options = [])
+ * @method SwitchDBInstanceHA switchDBInstanceHA(array $options = [])
+ * @method SwithcDBInstanceHA swithcDBInstanceHA(array $options = [])
+ * @method ModifyGuardDomainMode modifyGuardDomainMode(array $options = [])
+ * @method AllocatePublicNetworkAddress allocatePublicNetworkAddress(array $options = [])
+ * @method ReleasePublicNetworkAddress releasePublicNetworkAddress(array $options = [])
+ * @method ModifyReplicaMode modifyReplicaMode(array $options = [])
+ * @method ModifyReplicaRelation modifyReplicaRelation(array $options = [])
+ * @method DescribeShardingNetworkAddress describeShardingNetworkAddress(array $options = [])
+ * @method UpgradeDBInstanceEngineVersion upgradeDBInstanceEngineVersion(array $options = [])
+ * @method DescribeParameterTemplates describeParameterTemplates(array $options = [])
+ * @method ModifyParameters modifyParameters(array $options = [])
+ * @method DescribeParameterModificationHistory describeParameterModificationHistory(array $options = [])
+ * @method ModifyParameter modifyParameter(array $options = [])
+ * @method DescribeParameters describeParameters(array $options = [])
+ * @method ModifyDBInstanceNetExpireTime modifyDBInstanceNetExpireTime(array $options = [])
+ * @method DescribeAuditFiles describeAuditFiles(array $options = [])
+ * @method DescribeAuditRecords describeAuditRecords(array $options = [])
+ * @method ReleaseReplica releaseReplica(array $options = [])
+ * @method DescribeReplicaInitializeProgress describeReplicaInitializeProgress(array $options = [])
+ * @method DescribeReplicaPerformance describeReplicaPerformance(array $options = [])
+ * @method DescribeReplicas describeReplicas(array $options = [])
+ * @method DescribeReplicaUsage describeReplicaUsage(array $options = [])
+ * @method ModifyReplicaDescription modifyReplicaDescription(array $options = [])
+ * @method AddBindingTunnel addBindingTunnel(array $options = [])
+ * @method UnbindTunnel unbindTunnel(array $options = [])
+ * @method BindTunnel bindTunnel(array $options = [])
+ * @method CreateReplicationGroup createReplicationGroup(array $options = [])
+ * @method DeleteReplicationGroup deleteReplicationGroup(array $options = [])
+ * @method DescribeReplicationGroup describeReplicationGroup(array $options = [])
+ * @method ListReplicationGroup listReplicationGroup(array $options = [])
+ * @method ModifyReplicationGroup modifyReplicationGroup(array $options = [])
+ * @method DeleteNode deleteNode(array $options = [])
+ * @method ModifyNodeSpec modifyNodeSpec(array $options = [])
+ * @method CreateNode createNode(array $options = [])
+ * @method CreateShardingDBInstance createShardingDBInstance(array $options = [])
+ * @method ModifyDBInstanceMaintainTime modifyDBInstanceMaintainTime(array $options = [])
+ * @method Sample sample(array $options = [])
+ * @method ModifyDBInstanceNetworkType modifyDBInstanceNetworkType(array $options = [])
+ * @method RenewDBInstance renewDBInstance(array $options = [])
+ * @method ModifyAccountDescription modifyAccountDescription(array $options = [])
+ * @method ModifyBackupPolicy modifyBackupPolicy(array $options = [])
+ * @method ModifyDBInstanceDescription modifyDBInstanceDescription(array $options = [])
+ * @method ModifyDBInstanceSpec modifyDBInstanceSpec(array $options = [])
+ * @method ModifySecurityIps modifySecurityIps(array $options = [])
+ * @method ResetAccountPassword resetAccountPassword(array $options = [])
+ * @method RestartDBInstance restartDBInstance(array $options = [])
+ * @method RestoreDBInstance restoreDBInstance(array $options = [])
+ * @method DescribeDBInstances describeDBInstances(array $options = [])
+ * @method DescribeRegions describeRegions(array $options = [])
+ * @method DescribeReplicaSetRole describeReplicaSetRole(array $options = [])
+ * @method DescribeSecurityIps describeSecurityIps(array $options = [])
+ * @method CreateDBInstance createDBInstance(array $options = [])
+ * @method DeleteDBInstance deleteDBInstance(array $options = [])
+ * @method DescribeAccounts describeAccounts(array $options = [])
+ * @method DescribeBackupPolicy describeBackupPolicy(array $options = [])
+ * @method DescribeBackups describeBackups(array $options = [])
+ * @method DescribeDBInstanceAttribute describeDBInstanceAttribute(array $options = [])
+ * @method DescribeDBInstancePerformance describeDBInstancePerformance(array $options = [])
+ * @method CreateBackup createBackup(array $options = [])
+ */
+class DdsApiResolver
+{
+    use ApiResolverTrait;
+}
 
 class V20151201Rpc extends Rpc
 {
@@ -89,14 +225,14 @@ class ListTagResources extends V20151201Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -104,16 +240,16 @@ class ListTagResources extends V20151201Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -140,14 +276,14 @@ class UntagResources extends V20151201Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -155,14 +291,14 @@ class UntagResources extends V20151201Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tagKey
      *
      * @return $this
      */
-    public function withTagKey(array $value)
+    public function withTagKey(array $tagKey)
     {
-        $this->data['TagKey'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['TagKey'] = $tagKey;
+        foreach ($tagKey as $i => $iValue) {
             $this->options['query']['TagKey.' . ($i + 1)] = $iValue;
         }
 
@@ -188,14 +324,14 @@ class TagResources extends V20151201Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $resourceId
      *
      * @return $this
      */
-    public function withResourceId(array $value)
+    public function withResourceId(array $resourceId)
     {
-        $this->data['ResourceId'] = $value;
-        foreach ($value as $i => $iValue) {
+        $this->data['ResourceId'] = $resourceId;
+        foreach ($resourceId as $i => $iValue) {
             $this->options['query']['ResourceId.' . ($i + 1)] = $iValue;
         }
 
@@ -203,16 +339,16 @@ class TagResources extends V20151201Rpc
     }
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
@@ -2476,47 +2612,47 @@ class CreateShardingDBInstance extends V20151201Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $replicaSet
      *
      * @return $this
      */
-    public function withReplicaSet(array $value)
+    public function withReplicaSet(array $replicaSet)
     {
-        $this->data['ReplicaSet'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['ReplicaSet.' . ($i + 1) . '.Storage'] = $value[$i]['Storage'];
-            $this->options['query']['ReplicaSet.' . ($i + 1) . '.Class'] = $value[$i]['Class'];
+        $this->data['ReplicaSet'] = $replicaSet;
+        foreach ($replicaSet as $depth1 => $depth1Value) {
+            $this->options['query']['ReplicaSet.' . ($depth1 + 1) . '.Storage'] = $depth1Value['Storage'];
+            $this->options['query']['ReplicaSet.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $configServer
      *
      * @return $this
      */
-    public function withConfigServer(array $value)
+    public function withConfigServer(array $configServer)
     {
-        $this->data['ConfigServer'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['ConfigServer.' . ($i + 1) . '.Storage'] = $value[$i]['Storage'];
-            $this->options['query']['ConfigServer.' . ($i + 1) . '.Class'] = $value[$i]['Class'];
+        $this->data['ConfigServer'] = $configServer;
+        foreach ($configServer as $depth1 => $depth1Value) {
+            $this->options['query']['ConfigServer.' . ($depth1 + 1) . '.Storage'] = $depth1Value['Storage'];
+            $this->options['query']['ConfigServer.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
         }
 
         return $this;
     }
 
     /**
-     * @param array $value
+     * @param array $mongos
      *
      * @return $this
      */
-    public function withMongos(array $value)
+    public function withMongos(array $mongos)
     {
-        $this->data['Mongos'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Mongos.' . ($i + 1) . '.Class'] = $value[$i]['Class'];
+        $this->data['Mongos'] = $mongos;
+        foreach ($mongos as $depth1 => $depth1Value) {
+            $this->options['query']['Mongos.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
         }
 
         return $this;
@@ -2862,16 +2998,16 @@ class DescribeDBInstances extends V20151201Rpc
 {
 
     /**
-     * @param array $value
+     * @param array $tag
      *
      * @return $this
      */
-    public function withTag(array $value)
+    public function withTag(array $tag)
     {
-        $this->data['Tag'] = $value;
-        foreach ($value as $i => $iValue) {
-            $this->options['query']['Tag.' . ($i + 1) . '.Value'] = $value[$i]['Value'];
-            $this->options['query']['Tag.' . ($i + 1) . '.Key'] = $value[$i]['Key'];
+        $this->data['Tag'] = $tag;
+        foreach ($tag as $depth1 => $depth1Value) {
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+            $this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
         }
 
         return $this;
