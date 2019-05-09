@@ -5,8 +5,8 @@ namespace AlibabaCloud\Dds;
 use AlibabaCloud\Client\Resolver\VersionResolver;
 
 /**
- * @deprecated
+ * @method static V20151201\DdsApiResolver v20151201()
  */
-class DdsVersion extends VersionResolver
+class Dds extends VersionResolver
 {
 }
