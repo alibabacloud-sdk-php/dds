@@ -38,9 +38,11 @@ use AlibabaCloud\Client\Resolver\ApiResolver;
  * @method DescribeIndexRecommendation describeIndexRecommendation(array $options = [])
  * @method DescribeInstanceAutoRenewalAttribute describeInstanceAutoRenewalAttribute(array $options = [])
  * @method DescribeKernelReleaseNotes describeKernelReleaseNotes(array $options = [])
+ * @method DescribeMongoDBLogConfig describeMongoDBLogConfig(array $options = [])
  * @method DescribeParameterModificationHistory describeParameterModificationHistory(array $options = [])
  * @method DescribeParameters describeParameters(array $options = [])
  * @method DescribeParameterTemplates describeParameterTemplates(array $options = [])
+ * @method DescribePrice describePrice(array $options = [])
  * @method DescribeRegions describeRegions(array $options = [])
  * @method DescribeRenewalPrice describeRenewalPrice(array $options = [])
  * @method DescribeReplicaSetRole describeReplicaSetRole(array $options = [])
@@ -396,8 +398,12 @@ class CreateShardingDBInstance extends Rpc
 	{
 	    $this->data['ReplicaSet'] = $replicaSet;
 		foreach ($replicaSet as $depth1 => $depth1Value) {
-			$this->options['query']['ReplicaSet.' . ($depth1 + 1) . '.Storage'] = $depth1Value['Storage'];
-			$this->options['query']['ReplicaSet.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
+			if(isset($depth1Value['Storage'])){
+				$this->options['query']['ReplicaSet.' . ($depth1 + 1) . '.Storage'] = $depth1Value['Storage'];
+			}
+			if(isset($depth1Value['Class'])){
+				$this->options['query']['ReplicaSet.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
+			}
 		}
 
 		return $this;
@@ -412,8 +418,12 @@ class CreateShardingDBInstance extends Rpc
 	{
 	    $this->data['ConfigServer'] = $configServer;
 		foreach ($configServer as $depth1 => $depth1Value) {
-			$this->options['query']['ConfigServer.' . ($depth1 + 1) . '.Storage'] = $depth1Value['Storage'];
-			$this->options['query']['ConfigServer.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
+			if(isset($depth1Value['Storage'])){
+				$this->options['query']['ConfigServer.' . ($depth1 + 1) . '.Storage'] = $depth1Value['Storage'];
+			}
+			if(isset($depth1Value['Class'])){
+				$this->options['query']['ConfigServer.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
+			}
 		}
 
 		return $this;
@@ -428,7 +438,9 @@ class CreateShardingDBInstance extends Rpc
 	{
 	    $this->data['Mongos'] = $mongos;
 		foreach ($mongos as $depth1 => $depth1Value) {
-			$this->options['query']['Mongos.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
+			if(isset($depth1Value['Class'])){
+				$this->options['query']['Mongos.' . ($depth1 + 1) . '.Class'] = $depth1Value['Class'];
+			}
 		}
 
 		return $this;
@@ -874,8 +886,12 @@ class DescribeDBInstances extends Rpc
 	{
 	    $this->data['Tag'] = $tag;
 		foreach ($tag as $depth1 => $depth1Value) {
-			$this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-			$this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			if(isset($depth1Value['Value'])){
+				$this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+			}
+			if(isset($depth1Value['Key'])){
+				$this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			}
 		}
 
 		return $this;
@@ -1033,6 +1049,24 @@ class DescribeKernelReleaseNotes extends Rpc
 /**
  * @method string getResourceOwnerId()
  * @method $this withResourceOwnerId($value)
+ * @method string getSecurityToken()
+ * @method $this withSecurityToken($value)
+ * @method string getDBInstanceId()
+ * @method $this withDBInstanceId($value)
+ * @method string getResourceOwnerAccount()
+ * @method $this withResourceOwnerAccount($value)
+ * @method string getOwnerAccount()
+ * @method $this withOwnerAccount($value)
+ * @method string getOwnerId()
+ * @method $this withOwnerId($value)
+ */
+class DescribeMongoDBLogConfig extends Rpc
+{
+}
+
+/**
+ * @method string getResourceOwnerId()
+ * @method $this withResourceOwnerId($value)
  * @method string getStartTime()
  * @method $this withStartTime($value)
  * @method string getSecurityToken()
@@ -1091,6 +1125,36 @@ class DescribeParameters extends Rpc
  * @method $this withOwnerId($value)
  */
 class DescribeParameterTemplates extends Rpc
+{
+}
+
+/**
+ * @method string getResourceOwnerId()
+ * @method $this withResourceOwnerId($value)
+ * @method string getProductCode()
+ * @method $this withProductCode($value)
+ * @method string getCouponNo()
+ * @method $this withCouponNo($value)
+ * @method string getSecurityToken()
+ * @method $this withSecurityToken($value)
+ * @method string getBusinessInfo()
+ * @method $this withBusinessInfo($value)
+ * @method string getResourceOwnerAccount()
+ * @method $this withResourceOwnerAccount($value)
+ * @method string getOwnerAccount()
+ * @method $this withOwnerAccount($value)
+ * @method string getOrderParamOut()
+ * @method $this withOrderParamOut($value)
+ * @method string getCommodityCode()
+ * @method $this withCommodityCode($value)
+ * @method string getOwnerId()
+ * @method $this withOwnerId($value)
+ * @method string getDBInstances()
+ * @method $this withDBInstances($value)
+ * @method string getOrderType()
+ * @method $this withOrderType($value)
+ */
+class DescribePrice extends Rpc
 {
 }
 
@@ -1376,8 +1440,12 @@ class ListTagResources extends Rpc
 	{
 	    $this->data['Tag'] = $tag;
 		foreach ($tag as $depth1 => $depth1Value) {
-			$this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-			$this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			if(isset($depth1Value['Value'])){
+				$this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+			}
+			if(isset($depth1Value['Key'])){
+				$this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			}
 		}
 
 		return $this;
@@ -2077,8 +2145,12 @@ class TagResources extends Rpc
 	{
 	    $this->data['Tag'] = $tag;
 		foreach ($tag as $depth1 => $depth1Value) {
-			$this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
-			$this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			if(isset($depth1Value['Value'])){
+				$this->options['query']['Tag.' . ($depth1 + 1) . '.Value'] = $depth1Value['Value'];
+			}
+			if(isset($depth1Value['Key'])){
+				$this->options['query']['Tag.' . ($depth1 + 1) . '.Key'] = $depth1Value['Key'];
+			}
 		}
 
 		return $this;
